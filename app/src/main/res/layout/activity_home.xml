@@ -21,7 +21,7 @@
         android:textSize="22sp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/home_button_alreadyhaveaccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView"
@@ -35,10 +35,10 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/home_button_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button2"
+        android:layout_below="@+id/home_button_alreadyhaveaccount"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="34dp"
         android:background="@android:color/white"

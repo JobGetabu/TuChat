@@ -19,9 +19,10 @@
         <activity android:name=".userManagement.HomeActivity" />
         <activity android:name=".userManagement.LoginActivity"
             android:parentActivityName=".userManagement.HomeActivity">
-
         </activity>
-        <activity android:name=".userManagement.RegisterActivity"></activity>
+        <activity android:name=".userManagement.RegisterActivity"
+            android:parentActivityName=".userManagement.HomeActivity">
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"

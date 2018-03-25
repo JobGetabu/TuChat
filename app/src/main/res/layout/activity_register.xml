@@ -17,7 +17,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto_mono_medium"
-        android:text="Create a New Account"
+        android:text="@string/create_a_new_account"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
@@ -36,7 +36,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_mono_medium"
-            android:hint="Display Name" />
+            android:hint="@string/display_name" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -61,7 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/register_input_email"
-        android:layout_centerVertical="true"
+        android:layout_below="@id/register_input_email"
         android:layout_marginTop="8dp"
         android:id="@+id/register_input_password">
 
@@ -72,7 +72,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_mono_medium"
-            android:hint="Password" />
+            android:hint="@string/password" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
@@ -83,10 +83,10 @@
         android:layout_below="@+id/register_input_password"
         android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
-        android:background="@color/colorAccent"
+       android:background="@drawable/positive_action_button_bg"
         android:fontFamily="@font/roboto_mono_medium"
         android:padding="8dp"
-        android:text="Create account"
+        android:text="@string/create_account"
         android:textColor="@android:color/white" />
 
 </RelativeLayout>
