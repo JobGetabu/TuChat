@@ -17,8 +17,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".userManagement.HomeActivity" />
-        <activity android:name=".userManagement.LoginActivity" />
+        <activity android:name=".userManagement.LoginActivity"
+            android:parentActivityName=".userManagement.HomeActivity">
+
+        </activity>
         <activity android:name=".userManagement.RegisterActivity"></activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
