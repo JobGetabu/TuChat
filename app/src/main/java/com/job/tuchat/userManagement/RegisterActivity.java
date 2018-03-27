@@ -90,6 +90,8 @@ public class RegisterActivity extends AppCompatActivity {
                                 //store displayname
                                 HashMap<String,String> hashMap = new HashMap<>();
                                 hashMap.put("name",displayname);
+                                hashMap.put("imagelink","default");
+                                hashMap.put("status",getResources().getString(R.string.default_status));
 
                                 mFirestore.collection("Users").document(user_id).set(hashMap)
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -120,7 +122,8 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void sendToMain() {
-        Intent mainIntent = new Intent(this, MainActivity.class);
+        Intent mainIntent = new Intent(RegisterActivity.this, MainActivity.class);
+        mainIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(mainIntent);
         finish();
     }

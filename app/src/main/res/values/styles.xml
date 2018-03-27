@@ -8,4 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MyButton" parent="Base.TextAppearance.AppCompat.Widget.Button.Colored">
+        <item name="colorControlHighlight">@color/negativeButtonHighlight</item>
+        <item name="colorButtonNormal">@color/colorPrimary</item>
+    </style>
+
+    <style name="MyPositiveButton" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="colorControlHighlight">@color/positiveButtonHighlight</item>
+        <item name="colorButtonNormal">@color/colorAccent</item>
+    </style>
+
 </resources>

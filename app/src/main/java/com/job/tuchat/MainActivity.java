@@ -13,12 +13,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.job.tuchat.adapter.TabsFragmentAdapter;
 import com.job.tuchat.userManagement.HomeActivity;
+import com.job.tuchat.userManagement.SettingActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
     @BindView(R.id.main_appbar)
     Toolbar mToolbar;
     @BindView(R.id.main_tablayout)
@@ -40,12 +42,13 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("TuChat");
 
+        //firebase
+        mAuth = FirebaseAuth.getInstance();
+
         tabsFragmentAdapter = new TabsFragmentAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(tabsFragmentAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
 
-        //firebase
-        mAuth = FirebaseAuth.getInstance();
 
     }
 
@@ -60,24 +63,37 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
-        //TODO handle item selection
 
+        int id = item.getItemId();
+        switch (id){
+            case R.id.main_menu_logout :
+                mAuth.signOut();
+                sendToHome();
+                break;
+            case R.id.main_menu_account_settings:
+                Intent settingIntent = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(settingIntent);
+                break;
+                default:
+                    return true;
+        }
         return true;
     }
 
-
+    private void sendToHome(){
+        Intent homeIntent = new Intent(MainActivity.this, HomeActivity.class);
+        startActivity(homeIntent);
+        finish();
+    }
     @Override
     protected void onStart() {
         super.onStart();
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
+   /*     Log.d(TAG,"onStart: "+currentUser.getDisplayName());*/
         if (currentUser == null){
-            Intent homeIntent = new Intent(this, HomeActivity.class);
-            homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(homeIntent);
-            finish();
+            sendToHome();
         }
-
         //TODO init firebase real time listening
     }
 }

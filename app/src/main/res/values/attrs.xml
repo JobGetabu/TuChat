@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<declare-styleable name="SDTextView">-->
+    <!--<attr name="customFont" format="string"/>-->
+    <!--</declare-styleable>-->
+
+    <attr name="aspect" />
+    <declare-styleable name="SDTextView">
+        <attr name="customTypeface" format="string" />
+    </declare-styleable>
+</resources>
